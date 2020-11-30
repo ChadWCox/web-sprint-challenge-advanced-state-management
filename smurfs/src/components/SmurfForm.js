@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import { postSmurfs } from '../actions'
 
 
 
@@ -30,10 +30,8 @@ const SmurfForm = (props) => {
 
    const handleSubmit = (e) => {
        e.preventDefault()
-       axios
-        .post('http://localhost:3333/smurfs', smurfs )
-        .then((res) => {console.log(res.data)})
-        .catch((err) => {console.log(err)});
+       postSmurfs(smurfs);
+       setSmurfs(initialState)
    }
 
    
